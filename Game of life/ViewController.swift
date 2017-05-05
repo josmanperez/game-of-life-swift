@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     var life = Life()
     let gameBoard:GameBoard
     
+    var timer: Timer!
+    
     
     required init?(coder aDecoder: NSCoder) {
         gameBoard = GameBoard(createdLife: life)
@@ -28,13 +30,37 @@ class ViewController: UIViewController {
         gameBoard.frame = boardView.frame
         gameBoard.center = CGPoint(x: gameBoard.frame.size.width / 2, y: gameBoard.frame.size.height / 2)
         boardView.addSubview(gameBoard)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(ViewController.startTimer(recognizer:)))
+        boardView.addGestureRecognizer(tap)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func startTimer(recognizer: UIGestureRecognizer) -> Void {
+        timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(ViewController.moment), userInfo: nil, repeats: true)
+        
+    }
 
+    func initializeGame() {
+        for cell in life.cells {
+            cell.state = State.randomState()
+        }
+    }
+    
+    func moment() {
+        life.evolve()
+        gameBoard.setNeedsDisplay()
+    }
 
+    @IBAction func handleResetButtonTap(_ sender: Any) {
+        timer.invalidate()
+        initializeGame()
+        gameBoard.setNeedsDisplay()
+    }
+    
 }
 

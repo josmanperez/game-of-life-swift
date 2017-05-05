@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,11 +25,20 @@
                                 <rect key="frame" x="0.0" y="86" width="375" height="316"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8IB-6F-ApX">
+                                <rect key="frame" x="167.5" y="617" width="39" height="30"/>
+                                <state key="normal" title="Reset"/>
+                                <connections>
+                                    <action selector="handleResetButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7tl-x3-yHV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="X6P-2s-Q6p" secondAttribute="bottom" constant="265" id="Fvr-dv-GgH"/>
                             <constraint firstItem="X6P-2s-Q6p" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="66" id="XG6-5D-xIV"/>
+                            <constraint firstItem="8IB-6F-ApX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g2Y-QS-d3d"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8IB-6F-ApX" secondAttribute="bottom" constant="20" id="lfJ-9n-qol"/>
                             <constraint firstAttribute="trailing" secondItem="X6P-2s-Q6p" secondAttribute="trailing" id="m02-pI-GNv"/>
                             <constraint firstItem="X6P-2s-Q6p" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="uvd-fg-of3"/>
                         </constraints>

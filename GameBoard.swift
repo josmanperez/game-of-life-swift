@@ -26,7 +26,7 @@ class GameBoard: UIView {
     override func draw(_ rect: CGRect) {
         let currentContext = UIGraphicsGetCurrentContext()
         
-        for cell in life.cell {
+        for cell in life.cells {
             if let currentContext = currentContext {
                 currentContext.setFillColor(colorForCell(cell.state).cgColor)
                 currentContext.addRect(frameForCell(cell: cell))
