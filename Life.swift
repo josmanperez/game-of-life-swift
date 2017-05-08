@@ -10,13 +10,16 @@ import Foundation
 
 class Life {
     var cells: [Cell]
-    var gridSize:Int = 20
+//    var gridSize:Int = 20
+    var grid = (0...20)
     
     init() {
         cells = [Cell]()
         cells = assignCellsToGrid()
     }
     
+    /**
+     AssignCells creado usando for-in loop
     lazy var assignCellsToGrid:() -> [Cell] = {
         [weak self] in // Helps to avoid memory leaks
         var cells = [Cell]()
@@ -27,6 +30,15 @@ class Life {
         }
         return cells
     }
+    */
+    
+    /**
+     AssignCell usando funciones de alto nivel (high order functions)
+    */
+    func assignCellsToGrid() -> [Cell] {
+        return (0...20).flatMap{ x in (0...20).map { Cell(x: x, y: $0) } }
+    }
+    
     
     func evolve() -> Void {
         let liveCells = cells.filter { $0.state == .Living }
@@ -40,11 +52,11 @@ class Life {
         // rule 4
         let newLife = deadCells.filter { livingNeighbors(cell: $0) == 3 }
         
-        for newCell in newLife {
-            newCell.state = .Living
+        newLife.forEach {
+            $0.state = .Living
         }
-        for deadCell in dyingCells {
-            deadCell.state = .Dead
+        dyingCells.forEach {
+            $0.state = .Dead
         }
     }
     

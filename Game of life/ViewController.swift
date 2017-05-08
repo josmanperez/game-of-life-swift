@@ -46,8 +46,8 @@ class ViewController: UIViewController {
     }
 
     func initializeGame() {
-        for cell in life.cells {
-            cell.state = State.randomState()
+        life.cells.forEach {
+            $0.state = State.randomState()
         }
     }
     
