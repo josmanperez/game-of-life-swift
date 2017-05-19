@@ -10,7 +10,7 @@ import Foundation
 
 class Life {
     var cells: [Cell]
-//    var gridSize:Int = 20
+    var gridSize:Int = 20
     var grid = (0...20)
     
     init() {

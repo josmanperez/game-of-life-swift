@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet var boardView: UIView!
+    @IBOutlet var menuButton: UIBarButtonItem!
     
     var life = Life()
     let gameBoard:GameBoard
@@ -33,6 +34,13 @@ class ViewController: UIViewController {
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(ViewController.startTimer(recognizer:)))
         boardView.addGestureRecognizer(tap)
+        
+        if self.revealViewController() != nil {
+            menuButton.target = self.revealViewController()
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            self.revealViewController().rearViewRevealWidth = 200
+        }
     }
 
     override func didReceiveMemoryWarning() {
