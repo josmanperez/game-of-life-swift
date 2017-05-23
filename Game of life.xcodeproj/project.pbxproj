@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		3B70BB20B97DBDF329CC1CB9 /* Pods_Game_of_life.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34FF05B50EB03BD3AF8C7275 /* Pods_Game_of_life.framework */; };
 		8E52E7C197AE541D350D9F67 /* Pods_Game_of_lifeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80E5689B60504D413A25819F /* Pods_Game_of_lifeTests.framework */; };
+		99856BD11ED41CC600EAE371 /* Connect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99856BD01ED41CC600EAE371 /* Connect.swift */; };
+		99856BD31ED41DF300EAE371 /* HighScoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99856BD21ED41DF300EAE371 /* HighScoreTableViewController.swift */; };
+		99856BD51ED41E9500EAE371 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99856BD41ED41E9500EAE371 /* Score.swift */; };
+		99856BD71ED41E9E00EAE371 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99856BD61ED41E9E00EAE371 /* Section.swift */; };
 		99CE3F621EAF2E76008FA417 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CE3F611EAF2E76008FA417 /* AppDelegate.swift */; };
 		99CE3F671EAF2E76008FA417 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99CE3F651EAF2E76008FA417 /* Main.storyboard */; };
 		99CE3F691EAF2E76008FA417 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99CE3F681EAF2E76008FA417 /* Assets.xcassets */; };
@@ -39,6 +43,10 @@
 		5F3B32FAA5187B7FE72CE359 /* Pods-Game of life.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Game of life.release.xcconfig"; path = "Pods/Target Support Files/Pods-Game of life/Pods-Game of life.release.xcconfig"; sourceTree = "<group>"; };
 		6105F3D7DEB76C4F3445E893 /* Pods-Game of lifeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Game of lifeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Game of lifeTests/Pods-Game of lifeTests.release.xcconfig"; sourceTree = "<group>"; };
 		80E5689B60504D413A25819F /* Pods_Game_of_lifeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Game_of_lifeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		99856BD01ED41CC600EAE371 /* Connect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connect.swift; sourceTree = "<group>"; };
+		99856BD21ED41DF300EAE371 /* HighScoreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreTableViewController.swift; sourceTree = "<group>"; };
+		99856BD41ED41E9500EAE371 /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
+		99856BD61ED41E9E00EAE371 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		99CE3F5E1EAF2E76008FA417 /* Game of life.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Game of life.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99CE3F611EAF2E76008FA417 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99CE3F661EAF2E76008FA417 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -117,6 +125,10 @@
 				99E5943F1ECEDA6E00E57BF4 /* SWRevealViewController.h */,
 				99E594401ECEDA6E00E57BF4 /* SWRevealViewController.m */,
 				99E5944A1ECEDE4200E57BF4 /* GameBoard.swift */,
+				99856BD21ED41DF300EAE371 /* HighScoreTableViewController.swift */,
+				99856BD41ED41E9500EAE371 /* Score.swift */,
+				99856BD01ED41CC600EAE371 /* Connect.swift */,
+				99856BD61ED41E9E00EAE371 /* Section.swift */,
 				99CE3F611EAF2E76008FA417 /* AppDelegate.swift */,
 				99E594501ECEDE7C00E57BF4 /* Life.swift */,
 				99EAC0011ECEE1C2006F797B /* ViewController.swift */,
@@ -355,12 +367,16 @@
 			files = (
 				99E5944D1ECEDE4700E57BF4 /* Utility.swift in Sources */,
 				99CE3F841EAF3222008FA417 /* Cell.swift in Sources */,
+				99856BD31ED41DF300EAE371 /* HighScoreTableViewController.swift in Sources */,
 				99E594411ECEDA6E00E57BF4 /* SWRevealViewController.m in Sources */,
 				99CE3F621EAF2E76008FA417 /* AppDelegate.swift in Sources */,
 				99E594511ECEDE7C00E57BF4 /* Life.swift in Sources */,
 				99E5944B1ECEDE4200E57BF4 /* GameBoard.swift in Sources */,
 				99EAC0021ECEE1C2006F797B /* ViewController.swift in Sources */,
 				99CE3F821EAF3188008FA417 /* State.swift in Sources */,
+				99856BD71ED41E9E00EAE371 /* Section.swift in Sources */,
+				99856BD51ED41E9500EAE371 /* Score.swift in Sources */,
+				99856BD11ED41CC600EAE371 /* Connect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

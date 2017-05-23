@@ -39,25 +39,27 @@ class Life {
         return (0...20).flatMap{ x in (0...20).map { Cell(x: x, y: $0) } }
     }
     
-    
-    func evolve() -> Void {
-        let liveCells = cells.filter { $0.state == .Living }
-        let deadCells = cells.filter { cell in cell.state != .Living }
+    func evolve(completion: (_ remaining: Int) -> ()) {
         
-        // rule 1, 2, 3
-        let dyingCells = liveCells.filter {
-            !(2...3 ~= livingNeighbors(cell: $0))
-        }
+        let liveCells = cells.filter { $0.state == State.Living }
+        let deadCells = cells.filter { $0.state != State.Living }
         
-        // rule 4
+        // Rules 1,2, & 3
+        let dyingCells = liveCells.filter { !(2...3 ~= livingNeighbors(cell: $0)) }
+        
+        // Rule 4
         let newLife = deadCells.filter { livingNeighbors(cell: $0) == 3 }
         
-        newLife.forEach {
-            $0.state = .Living
+        newLife.forEach { $0.state = .Living }
+        dyingCells.forEach { $0.state = .Dead }
+        
+        if (liveCells.count < 40) {
+            completion(liveCells.count)
         }
-        dyingCells.forEach {
-            $0.state = .Dead
-        }
+        
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "passCountId"), object: liveCells.count)
+        
     }
     
 //    func cellNeighbors(cell: Cell) -> [Cell] {
