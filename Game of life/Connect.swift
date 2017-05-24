@@ -28,9 +28,8 @@ class Connect {
     func getAllScores(completion: @escaping (_ result: AnyObject) -> ()) {
         Alamofire.request("https://danbeaulieu.azurewebsites.net/api/scores", method: .get, parameters: nil).responseJSON {
             response in
-            let backgroundQueue = OperationQueue()
-            
-            backgroundQueue.addOperation() {
+            // Con GCD
+            DispatchQueue.global().async {
                 print("status \(String(describing: response.response))")
                 
                 if let JSON = response.result.value {
@@ -38,6 +37,15 @@ class Connect {
                     completion(JSON as AnyObject)
                 }
             }
+/*            let backgroundQueue = OperationQueue()
+            backgroundQueue.addOperation() {
+                print("status \(String(describing: response.response))")
+                
+                if let JSON = response.result.value {
+                    print(JSON)
+                    completion(JSON as AnyObject)
+                }
+            } */
         }
     }
 }

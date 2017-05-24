@@ -10,39 +10,35 @@ import UIKit
 
 class HighScoreTableViewController: UITableViewController {
 
-    @IBOutlet weak var menuButton: UIBarButtonItem!
+    @IBOutlet var menuButton: UIBarButtonItem!
     var indicator = UIActivityIndicatorView()
 
     var scores = [Score]() {
         didSet {
-           let mainQueue = OperationQueue.main
-           mainQueue.addOperation() {
+//           Forma con OperationQueue
+//           let mainQueue = OperationQueue.main
+//           mainQueue.addOperation() {
+//                self.tableView.reloadData()
+//           }
+//             Forma con GCD
+            DispatchQueue.main.async {
                 self.tableView.reloadData()
-           }
-            
+            }
         }
     
     }
     
     func getScores() {
-    
         self.indicator.startAnimating()
         self.indicator.backgroundColor = UIColor.white
-    
-
         Connect().getAllScores { (result) -> () in
-            
                 let scoreData = result as! [AnyObject]
-            
                 scoreData.forEach { item in
                     self.scores.append(Score(name: item["UserName"] as! String, score: item["Moves"] as! Int))
               }
-        
-       
             self.indicator.stopAnimating()
             self.indicator.hidesWhenStopped = true
         }
-            
     } 
         
     func activityIndicator() {
